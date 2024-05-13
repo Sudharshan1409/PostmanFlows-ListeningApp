@@ -1,5 +1,5 @@
 import requests
-from flask import Response, request, render_template
+from flask import Response, request, render_template, redirect
 from db import app, db, RedirectUrls
 
 
@@ -15,7 +15,7 @@ def home_page():
                 db.session.delete(url)
         db.session.add(redirect_url)
         db.session.commit()
-        return render_template('index.html', dropbox_url=dropbox_url)
+        return redirect('/')
     else:
         base_url = request.base_url
         dropbox_webhook_handle_url = base_url + 'dropbox/webhookhandler'
