@@ -41,12 +41,10 @@ def dropbox_webhook_handler():
         urls = RedirectUrls.query.all()
         if urls:
             url = urls[0].dropboxUrl
-            requests.post(url)
-            resp = Response('OK')
+            return redirect(url)
         else:
             resp = Response('No URL found', status=400)
-
-    return resp
+            return resp
 
 
 if __name__ == '__main__':
