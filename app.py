@@ -17,12 +17,14 @@ def home_page():
         db.session.commit()
         return render_template('index.html', dropbox_url=dropbox_url)
     else:
+        base_url = request.base_url
+        dropbox_webhook_handle_url = base_url + 'dropbox/webhookhandler'
         urls = RedirectUrls.query.all()
         if urls:
             url = urls[0].dropboxUrl
         else:
             url = ''
-        return render_template('index.html', dropbox_url=url)
+        return render_template('index.html', dropbox_url=url, dropbox_webhook_url=dropbox_webhook_handle_url)
 
 
 @app.route('/dropbox/webhookhandler', methods=['GET', 'POST'])
