@@ -36,8 +36,13 @@ def dropbox_webhook_handler():
         resp.headers['X-Content-Type-Options'] = 'nosniff'
         return resp
     else:
-        requests.post('https://5425a7ac396349f0b45fdf58e85816f0.flow.pstmn.io/')
-        resp = Response('OK')
+        urls = RedirectUrls.query.all()
+        if urls:
+            url = urls[0].dropboxUrl
+            requests.post(url)
+            resp = Response('OK')
+        else:
+            resp = Response('No URL found', status=400)
 
     return resp
 
