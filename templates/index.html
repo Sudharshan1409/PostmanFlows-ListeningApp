@@ -9,11 +9,16 @@
     <form action="/" method="POST">
         <!-- label for the field -->
         <label for="dropboxRedirectUrl">Dropbox Redirect URL:</label>
-        <input type="url" name="dropboxRedirectUrl" value="{{dropbox_url}}" placeholder="Dropbox Redirect URL">
+        <input type="url" name="dropboxRedirectUrl" placeholder="Dropbox Redirect URL">
         <input type="submit" value="Submit">
     </form>
-    <p>Dropbox Webhook Handle URL: {{dropbox_webhook_url}}</p>
-    <p>Dropbox Webhook Redirecting To: {{dropbox_url}}</p>
+    <h2>Dropbox:</h2>
+    <p>Dropbox Webhook Handle URL (Where this site will be listening to webhook requests):
+        <a href="{{dropbox_webhook_url}}">{{dropbox_webhook_url}}</a>
+    </p>
+    <p>Dropbox Webhook Redirecting To (Once webhook request is hit, the request will be redirected to this URL):
+        <a href="{{dropbox_url}}">{{dropbox_url}}</a>
+    </p>
 </body>
 
 </html>
