@@ -35,7 +35,7 @@ def dropbox_webhook_handler():
     # if get request
     if request.method == 'GET':
         if 'challenge' not in request.args:
-            return Response('Invalid request', status=400)
+            return Response('Invalid request, no challenge present in the request', status=400)
         resp = Response(request.args.get('challenge'))
         resp.headers['Content-Type'] = 'text/plain'
         resp.headers['X-Content-Type-Options'] = 'nosniff'
