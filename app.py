@@ -38,6 +38,7 @@ def dropbox_webhook_handler():
         resp.headers['X-Content-Type-Options'] = 'nosniff'
         return resp
     else:
+        print("Request", request.json)
         urls = RedirectUrls.query.all()
         if urls:
             url = urls[0].dropboxUrl
