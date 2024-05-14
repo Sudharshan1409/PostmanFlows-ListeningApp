@@ -11,10 +11,13 @@ def home_page():
         redirect_url = RedirectUrls(dropboxUrl=dropbox_url)
         urls = RedirectUrls.query.all()
         if urls:
-            for url in urls:
-                db.session.delete(url)
-        db.session.add(redirect_url)
-        db.session.commit()
+            url = urls[0]
+            # update the url
+            url.dropboxUrl = dropbox_url
+            db.session.commit()
+        else:
+            db.session.add(redirect_url)
+            db.session.commit()
         return redirect('/')
     else:
         base_url = request.base_url

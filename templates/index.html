@@ -4,12 +4,14 @@
     <title>Home</title>
 </head>
 
-<body>
+<body style="font-size: 120%;">
     <h1>PostmanFlows</h1>
     <form action="/" method="POST">
         <!-- label for the field -->
         <label for="dropboxRedirectUrl">Dropbox Redirect URL:</label>
-        <input type="url" name="dropboxRedirectUrl" placeholder="Dropbox Redirect URL">
+        <br />
+        <input type="url" name="dropboxRedirectUrl" value="{{dropbox_url}}" placeholder="Dropbox Redirect URL"
+            style="width: 50%; font-size: 100%;">
         <input type="submit" value="Submit">
     </form>
     <h2>Dropbox:</h2>
