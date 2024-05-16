@@ -49,7 +49,7 @@ This is a Flask web application that includes basic functionalities such as mana
 
 6. Run the application:
     ```bash
-    python app.py
+    python3 app.py  # On Windows use `python app.py`
     ```
 
 ## Usage
