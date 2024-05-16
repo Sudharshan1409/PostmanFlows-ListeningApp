@@ -15,5 +15,11 @@ migrate = Migrate(app, db)
 
 class RedirectUrls(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    dropboxUrl = db.Column(db.String(255), nullable=False)
+    dropboxUrl = db.Column(db.Text, nullable=False)
+
+
+class Blog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.Text, nullable=False)
 
