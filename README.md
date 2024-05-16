@@ -37,12 +37,17 @@ This is a Flask web application that includes basic functionalities such as mana
     pip install -r requirements.txt
     ```
 
-4. Set up the database:
+4. Migrate Database:
+    ```bash
+    flask db migrate -m "Initial migration"
+    ```
+
+5. Set up the database:
     ```bash
     flask db upgrade
     ```
 
-5. Run the application:
+6. Run the application:
     ```bash
     python app.py
     ```
