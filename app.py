@@ -36,15 +36,12 @@ def home_page():
 def blogPage(blog_id=None):
     if request.method == 'POST':
         base_url = request.base_url
-        print("request", request.json)
         title = request.json.get('title')
         content = request.json.get('content')
         blog = Blog(title=title, content=content)
         db.session.add(blog)
         db.session.commit()
-        print('Blog ID', blog.id)
         blog_url = urljoin(base_url, f"blog/{blog.id}")
-        print('Blog URL', blog_url)
         return jsonify({'status': 'success', 'message': 'Blog added successfully', 'url': f"{blog_url}"}), 201
     else:
         if blog_id:
