@@ -1,7 +1,6 @@
 
 ### `DatabaseModels.md`
 
-```markdown
 # Adding a New Database Model
 
 To add a new database model to the Flask application, follow these steps:
