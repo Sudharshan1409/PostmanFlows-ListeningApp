@@ -9,7 +9,6 @@ This is a Flask web application that includes basic functionalities such as mana
 - [Adding a New API](#adding-a-new-api)
 - [Adding a New Database Model](#adding-a-new-database-model)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
