@@ -57,7 +57,7 @@ def blogPage(blog_id=None):
             # for blog in blogs:
             #     html_data += f'<h2>{blog.title}</h2>'
             #     html_data += markdown.markdown(blog.content)
-            return Response('Not implemented', status=501)
+            return Response('Not yet implemented', status=501)
 
 
 @app.route('/dropbox/webhookhandler', methods=['GET', 'POST'])
