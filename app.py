@@ -86,8 +86,10 @@ def facebook_webhook_handler():
     # if get request
     if request.method == 'GET':
         print("Request", request.args)
+        return Response(request.args.get('hub.challenge'))
     else:
         print("Request", request.json)
+        return Response('Success')
 
 
 if __name__ == '__main__':
