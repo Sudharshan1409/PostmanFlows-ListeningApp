@@ -81,5 +81,14 @@ def dropbox_webhook_handler():
             return resp
 
 
+@app.route('/facebook/webhookhandler', methods=['GET', 'POST'])
+def facebook_webhook_handler():
+    # if get request
+    if request.method == 'GET':
+        print("Request", request.args)
+    else:
+        print("Request", request.json)
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=8000)
