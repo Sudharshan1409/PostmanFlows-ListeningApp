@@ -71,7 +71,7 @@ def dropbox_webhook_handler():
         resp.headers['X-Content-Type-Options'] = 'nosniff'
         return resp
     else:
-        print("Request", request.json)
+        print("Request in dropbox handler", request.json)
         urls = RedirectUrls.query.all()
         if urls:
             url = urls[0].dropboxUrl
@@ -85,10 +85,10 @@ def dropbox_webhook_handler():
 def facebook_webhook_handler():
     # if get request
     if request.method == 'GET':
-        print("Request", request.args)
+        print("Request in facebook handler", request.args)
         return Response(request.args.get('hub.challenge'))
     else:
-        print("Request", request.json)
+        print("Request in facebook handler", request.json)
         return Response('Success')
 
 
