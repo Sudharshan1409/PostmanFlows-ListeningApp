@@ -84,6 +84,8 @@ def dropbox_webhook_handler():
 @app.route('/facebook/webhookhandler', methods=['GET', 'POST'])
 def facebook_webhook_handler():
     VERIFY_TOKEN = "postmanflows"
+    print("Request in facebook handler", request.json)
+    print("Request in facebook handler", request.args)
 
     if 'hub.mode' in request.args:
         mode = request.args.get('hub.mode')
