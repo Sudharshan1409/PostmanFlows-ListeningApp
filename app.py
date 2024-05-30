@@ -81,30 +81,15 @@ def dropbox_webhook_handler():
             return resp
 
 
-@app.route('/facebook/webhookhandler', methods=['GET', 'POST'])
-def facebook_webhook_handler():
-    VERIFY_TOKEN = "postmanflows"
-    print("Request in facebook handler", request.json)
-    print("Request in facebook handler", request.args)
+@app.route('/microsoft/webhookhandler', methods=['GET', 'POST'])
+def microsoft_webhook_handler():
+    if 'validationToken' in request.args:
+        return Response(request.args.get('validationToken'))
 
-    if 'hub.mode' in request.args:
-        mode = request.args.get('hub.mode')
-        print("Mode", mode)
+    print("Request in microsoft handler", request.json)
+    # notification = request.json
 
-    if 'hub.verify_token' in request.args:
-        verify_token = request.args.get('hub.verify_token')
-        print("Verify token", verify_token)
-
-    if 'hub.challenge' in request.args:
-        challenge = request.args.get('hub.challenge')
-        print("Challenge", challenge)
-
-    if mode == 'subscribe' and verify_token == VERIFY_TOKEN:
-        print("Webhook verified")
-
-        return Response(challenge, status=200)
-    else:
-        return Response('Invalid request', status=400)
+    return Response('Notification received', status=200)
 
 
 if __name__ == '__main__':
